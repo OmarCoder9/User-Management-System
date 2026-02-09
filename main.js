@@ -82,16 +82,28 @@ addBtn.onclick = () => {
   }
 
   if (editUserId) {
-    const confirmEdit = confirm("Are you sure you want to update this user?")
-    // if(!confirmEdit)return;
-    const user = initialUsers.find((u) => u.id === editUserId);
-    user.name = name;
-    user.email = email;
-    user.age = age;
-    user.specialty = specialty;
+    Swal.fire({
+      title: "Do you want to save the changes?",
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: "Save",
+      denyButtonText: `Don't save`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const user = initialUsers.find((u) => u.id === editUserId);
+        user.name = name;
+        user.email = email;
+        user.age = age;
+        user.specialty = specialty;
 
-    editUserId = null;
-    addBtn.textContent = "Add";
+        editUserId = null;
+        addBtn.textContent = "Add";
+        displayUsers(initialUsers);
+        Swal.fire("Saved!", "", "success");
+      } else if (result.isDenied) {
+        Swal.fire("Changes are not saved", "", "info");
+      }
+    });
   } else {
     initialCounter += 1;
     initialUsers.push({
@@ -161,16 +173,24 @@ function displayUsers(users) {
 function deleteUser(id) {
   const user = initialUsers.find((user) => user.id === id);
   if (!user) return;
-
-  const confirmDelete = confirm(`Are you sure you want to delete ${user.name}`);
-
-  if (confirmDelete) {
-    const index = initialUsers.findIndex((user) => user.id === id);
-    if (index !== -1) {
-      initialUsers.splice(index, 1);
-      displayUsers(initialUsers);
+  Swal.fire({
+    title: "Do you want to delete this user?",
+    showDenyButton: true,
+    showCancelButton: false,
+    confirmButtonText: "Delete",
+    denyButtonText: `Cancel`,
+  }).then((result) => {
+    if (result.isConfirmed) {
+      const index = initialUsers.findIndex((user) => user.id === id);
+      if (index !== -1) {
+        initialUsers.splice(index, 1);
+        displayUsers(initialUsers);
+      }
+      Swal.fire("Deleted!", "", "success");
+    } else if (result.isDenied) {
+      Swal.fire("Changes are not saved", "", "info");
     }
-  }
+  });
 }
 
 let editUserId = null;
