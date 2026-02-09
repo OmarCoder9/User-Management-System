@@ -36,7 +36,6 @@ const initialUsers = [
     }
 ];
 
-
 const popup = document.getElementById("userPopup");
 const openBtn = document.getElementById("openPopup");
 const addBtn = document.getElementById("addUser");

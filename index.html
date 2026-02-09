@@ -30,7 +30,7 @@
                     </select>
                 </div>
             </div>
-            <button class="btn btn-p" id="addBtn">Add new User</button>
+            <button class="btn btn-p" id="openPopup">Add new User</button>
         </section>
 
         <section class="user-section">
@@ -42,55 +42,6 @@
             </div>
         </section>
     </main>
-
-     <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>User Management System</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header class="header">
-      <div class="container">
-        <h1>User Management System</h1>
-      </div>
-    </header>
-
-    <main class="container">
-      <section class="controls">
-        <div class="search-filter">
-          <div class="search-box">
-            <input
-              type="text"
-              id="searchInput"
-              placeholder="Search By Name.."
-            />
-          </div>
-          <div class="filter-box">
-            <select id="specialtyFilter">
-              <option value="">All specialities</option>
-              <option value="Backend Developer">Backend Developer</option>
-              <option value="Frontend Developer">Frontend Developer</option>
-              <option value="Penteration Tester">Penteration Tester</option>
-              <option value="Manager">Manager</option>
-              <option value="Data Analyst">Data Analyst</option>
-            </select>
-          </div>
-        </div>
-      </section>
-
-      <section class="user-section">
-        <div id="user-container" class="user-grid"></div>
-
-        <div id="emptyState" class="empty-state" style="display: none">
-          <h3>No Users Found</h3>
-          <p>Try adjusting your search or add a new user</p>
-        </div>
-      </section>
-    </main>
-
-    <button id="openPopup">Add User</button>
-
     <div class="popup" id="userPopup">
       <div class="popup-content">
         <h3>Add User</h3>
