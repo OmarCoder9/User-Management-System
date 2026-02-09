@@ -1,11 +1,10 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Management System</title>
     <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
     <header class="header">
@@ -44,65 +43,69 @@
         </section>
     </main>
 
-    <div id="userModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 id="modalTitle">Add New User</h2>
-                <button class="close-btn" id="closeModal">&times;</button>
-            </div>
-            
-            <form id="userForm">
-                <div class="form-group">
-                    <label for="userName">Name *</label>
-                    <input 
-                        type="text" 
-                        id="userName" 
-                        placeholder="Enter full name"
-                        required
-                    >
-                    <span class="error-message" id="nameError"></span>
-                </div>
+     <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Management System</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <h1>User Management System</h1>
+      </div>
+    </header>
 
-                <div class="form-group">
-                    <label for="userEmail">Email *</label>
-                    <input 
-                        type="email" 
-                        id="userEmail" 
-                        placeholder="Enter email address"
-                        required
-                    >
-                    <span class="error-message" id="emailError"></span>
-                </div>
-
-                <div class="form-group">
-                    <label for="userAge">Age *</label>
-                    <input type="number" id="userAge" placeholder="Enter age" min="18" max="100" required>
-                    <span class="error-message" id="ageError"></span>
-                </div>
-
-                <div class="form-group">
-                    <label for="userSpecialty">Specialty *</label>
-                    <select id="userSpecialty" required>
-                        <option value="">Select specialty</option>
-                        <option value="Backend Developer">Backend Developer</option>
-                        <option value="Frontend Developer">Frontend Developer</option>
-                        <option value="Penteration Tester">Penteration Tester</option>
-                        <option value="Manager">Manager</option>
-                        <option value="Data Analyst">Data Analyst</option>
-                    </select>
-                    <span class="error-message" id="specialtyError"></span>
-                </div>
-
-                <div class="form-actions">
-                    <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
-                    <button type="submit" class="btn btn-primary" id="saveBtn">Save User</button>
-                </div>
-            </form>
+    <main class="container">
+      <section class="controls">
+        <div class="search-filter">
+          <div class="search-box">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search By Name.."
+            />
+          </div>
+          <div class="filter-box">
+            <select id="specialtyFilter">
+              <option value="">All specialities</option>
+              <option value="Backend Developer">Backend Developer</option>
+              <option value="Frontend Developer">Frontend Developer</option>
+              <option value="Penteration Tester">Penteration Tester</option>
+              <option value="Manager">Manager</option>
+              <option value="Data Analyst">Data Analyst</option>
+            </select>
+          </div>
         </div>
+      </section>
+
+      <section class="user-section">
+        <div id="user-container" class="user-grid"></div>
+
+        <div id="emptyState" class="empty-state" style="display: none">
+          <h3>No Users Found</h3>
+          <p>Try adjusting your search or add a new user</p>
+        </div>
+      </section>
+    </main>
+
+    <button id="openPopup">Add User</button>
+
+    <div class="popup" id="userPopup">
+      <div class="popup-content">
+        <h3>Add User</h3>
+
+        <div class="error" id="errorMessage"></div>
+
+        <input type="text" id="name" placeholder="Name" />
+        <input type="email" id="email" placeholder="Email" />
+        <input type="number" id="age" placeholder="Age" />
+        <input type="text" id="specialty" placeholder="Specialty" />
+
+        <button id="addUser">Add</button>
+      </div>
     </div>
 
-
-
     <script src="main.js"></script>
-</body>
+  </body>
 </html>
