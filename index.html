@@ -29,34 +29,30 @@
                         <option value="Data Analyst"> Data Analyst</option>
                     </select>
                 </div>
+                <button id="openPopup">Add User</button>
             </div>
-            <button class="btn btn-p" id="openPopup">Add new User</button>
+            <div class="popup" id="userPopup">
+                <div class="popup-content">
+                <h3>Add User</h3>
+                <div class="error" id="errorMessage"></div>
+                    <input type="text" id="name" placeholder="Name" />
+                    <input type="email" id="email" placeholder="Email" />
+                    <input type="number" id="age" placeholder="Age" />
+                    <select id="specialty">
+                      <option value="Manager"> Manager</option>
+                        <option value="Backend Developer"> Backend Developer</option>
+                        <option value="Frontend Developer"> Frontend Developer</option>
+                        <option value="Penteration Tester"> Penteration Tester</option>
+                        <option value="Data Analyst"> Data Analyst</option>
+                    </select>
+                    <button id="addUser">Add</button>
+                 </div>
+            </div>
         </section>
-
         <section class="user-section">
-            <div id="user-container" class="user-grid"></div>
-
-            <div id="emptyState" class="empty-state" style="display: none;">
-                <h3>No Users Found</h3>
-                <p>Try adjusting your search or add a new user</p>
-            </div>
+            <div id="usersContainer" class="user-grid"></div>
         </section>
     </main>
-    <div class="popup" id="userPopup">
-      <div class="popup-content">
-        <h3>Add User</h3>
-
-        <div class="error" id="errorMessage"></div>
-
-        <input type="text" id="name" placeholder="Name" />
-        <input type="email" id="email" placeholder="Email" />
-        <input type="number" id="age" placeholder="Age" />
-        <input type="text" id="specialty" placeholder="Specialty" />
-
-        <button id="addUser">Add</button>
-      </div>
-    </div>
-
     <script src="main.js"></script>
   </body>
 </html>
